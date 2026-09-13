@@ -144,6 +144,7 @@
     var b = el('button', 'exalite_tab');
     b.type = 'button';
     b.setAttribute('data-tab', it.slug || 'all');
+    b.title = it.label;
     var body = '<span class="exalite_tab-label">' + esc(it.label) + '</span>';
     if (it.tag) body += '<span class="exalite_tag">' + esc(it.tag) + '</span>';
     else body += '<span class="exalite_tab-sub">' + esc(it.sub || '') + '</span>';
@@ -313,7 +314,8 @@
 
     var ratio = target / m.s0, best = 0;
     for (var i = 0; i < ZOOM_STEPS.length; i++) {
-      if (Math.abs(ZOOM_STEPS[i] - ratio) < Math.abs(ZOOM_STEPS[best] - ratio)) best = i;
+      /* Stay within the fitted scale so neither end of a route is cropped. */
+      if (ZOOM_STEPS[i] <= ratio) best = i;
     }
     this.state.step = best;
     var s = m.s0 * ZOOM_STEPS[best];
