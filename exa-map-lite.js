@@ -279,6 +279,8 @@
 
     this.zIn.classList.toggle('is-disabled', this.state.step === ZOOM_STEPS.length - 1);
     this.zOut.classList.toggle('is-disabled', this.state.step === 0);
+    this.zIn.disabled = this.state.step === ZOOM_STEPS.length - 1;
+    this.zOut.disabled = this.state.step === 0;
     this.map.classList.toggle('is-pannable', this.state.step > 0);
 
     if (animate) {
