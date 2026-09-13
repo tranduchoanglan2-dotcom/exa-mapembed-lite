@@ -1,0 +1,426 @@
+/* ============================================================
+   EXA — Subsea Systems map (bản tối giản)
+   Số đo lấy từ Figma node 96:8225
+     container 1312 · tab strip 96 (inner 1248 @ x=32, 8 tab × 142, gap 16)
+     map 1312 × 640 · panel 444 × 576 inset 32 · pagination 138 × 40
+   Hoàn toàn tách khỏi bản đầy đủ — không dùng chung CSS/JS.
+   ============================================================ */
+
+.exalite {
+  --el-surface: #030d1c;
+  --el-map-bg: #0d1525;
+  --el-line: #313d58;
+  --el-divider: #1d2840;
+  --el-text: #ffffff;
+  --el-muted: #a5aebf;
+  --el-label: #7c8291;
+  --el-brand: #f58045;
+  --el-on-brand: #11131a;
+  --el-success: #67e478;
+  --el-shore: #39d080;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--el-surface);
+  color: var(--el-text);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+.exalite *,
+.exalite *::before,
+.exalite *::after { box-sizing: border-box; }
+
+.exalite button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ---------- TAB STRIP · Figma: block 96, inner 1248 @ (32,32), tab 142 ---------- */
+
+.exalite_tabs {
+  flex: 0 0 auto;
+  padding: 32px 32px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.exalite_tabs::-webkit-scrollbar { display: none; }
+
+.exalite_tabs-inner {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(142px, 1fr);
+  gap: 16px;
+  min-width: min-content;
+  padding-bottom: 32px;
+}
+
+.exalite .exalite_tab {
+  position: relative;
+  height: 64px;
+  padding: 0;
+  text-align: left;
+  border-bottom: 1px solid var(--el-line);
+  transition: border-color .2s;
+}
+.exalite .exalite_tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--el-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1);
+}
+.exalite .exalite_tab.is-active::after { transform: scaleX(1); }
+.exalite .exalite_tab:hover { border-color: var(--el-muted); }
+
+.exalite_tab-label {
+  display: block;
+  height: 20px;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--el-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.exalite_tab-sub {
+  display: block;
+  margin-top: 4px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--el-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* pill COMING SOON — Figma 77 × 16, chữ 12 tại (4,2) */
+.exalite_tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-top: 10px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--el-success);
+  color: var(--el-on-brand);
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+/* ---------- MAP · Figma 1312 × 640 ---------- */
+
+.exalite_map {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--el-map-bg);
+}
+
+.exalite_canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1765px;
+  height: 996px;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.exalite_canvas svg { display: block; width: 1765px; height: 996px; }
+
+.exalite_map.is-animating .exalite_canvas { transition: transform .55s cubic-bezier(.4, 0, .2, 1); }
+.exalite_map.is-dragging { cursor: grabbing; }
+.exalite_map.is-pannable { cursor: grab; }
+
+/* lớp trong SVG */
+#m-routes .mroute,
+#m-pops .mpop,
+#m-dots .mdot,
+#m-routes-static,
+#m-mesh { transition: opacity .3s; }
+
+.mhit { fill: none; stroke: transparent; stroke-width: 10; }
+#m-routes .mroute { pointer-events: none; }
+#m-routes .mroute .mhit { pointer-events: stroke; cursor: pointer; }
+#m-pops .mpop { pointer-events: none; }
+#m-routes .mroute:hover .mline { stroke-width: 2; }
+
+/* chọn một tuyến → ẩn hết phần còn lại, chỉ chừa tuyến đó + chấm của nó */
+.exalite.is-selected #m-mesh,
+.exalite.is-selected #m-routes-static { opacity: 0; }
+.exalite.is-selected #m-routes .mroute { opacity: 0; pointer-events: none; }
+.exalite.is-selected #m-routes .mroute.is-active { opacity: 1; }
+.exalite.is-selected #m-routes .mroute.is-active .mhit { pointer-events: stroke; }
+.exalite.is-selected #m-dots .mdot { opacity: 0; }
+.exalite.is-selected #m-dots .mdot.is-shown { opacity: 1; }
+.exalite.is-selected #m-pops .mpop { opacity: 0; }
+
+/* ---------- zoom · Figma 32 × 64 @ (32,32) ---------- */
+
+.exalite_zoom {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  z-index: 3;
+  width: 32px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(3, 13, 28, .62);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.exalite .exalite_zoom button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  transition: background .15s, opacity .15s;
+}
+.exalite .exalite_zoom button + button { border-top: 1px solid rgba(255, 255, 255, .16); }
+.exalite .exalite_zoom button:hover { background: rgba(255, 255, 255, .06); }
+.exalite .exalite_zoom button.is-disabled { opacity: .3; pointer-events: none; }
+
+/* ---------- pagination · Figma 138 × 40, sát mép trái panel, đáy trùng panel ---------- */
+
+.exalite_pagination {
+  position: absolute;
+  right: 508px;                 /* 32 (inset) + 444 (panel) + 32 (gap) */
+  bottom: 32px;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  height: 40px;
+  background: var(--el-brand);
+  color: var(--el-on-brand);
+}
+.exalite.is-panel-open .exalite_pagination { display: flex; }
+.exalite .exalite_pagination button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  transition: opacity .15s;
+}
+.exalite .exalite_pagination button:hover { opacity: .6; }
+.exalite_pagination-count {
+  min-width: 58px;
+  text-align: center;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -.01em;
+}
+
+/* ---------- PANEL · Figma 444 × 576, inset 32 ---------- */
+
+.exalite_panel {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  z-index: 4;
+  width: 444px;
+  height: 576px;
+  max-height: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, .62);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .35s, transform .35s, visibility .35s;
+  pointer-events: none;
+}
+.exalite.is-panel-open .exalite_panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+}
+
+.exalite_panel-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 104px 32px 32px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, .18) transparent;
+}
+.exalite_panel-scroll::-webkit-scrollbar { width: 6px; }
+.exalite_panel-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .18); }
+
+/* close 40 × 40, icon 24 */
+.exalite .exalite_close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .1);
+  transition: background .15s;
+}
+.exalite .exalite_close:hover { background: rgba(255, 255, 255, .2); }
+
+.exalite_kicker {
+  height: 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--el-muted);
+}
+
+.exalite_title {
+  margin: 0;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: -.03em;
+}
+
+.exalite_route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--el-text);
+}
+.exalite_route svg { flex: 0 0 20px; }
+
+.exalite_desc {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--el-text);
+}
+
+/* spec: 3 hàng × 46, nhãn trái viết hoa, giá trị canh phải */
+.exalite_specs { margin-top: 32px; }
+
+.exalite_spec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 46px;
+  border-top: 1px solid var(--el-divider);
+  font-size: 14px;
+  line-height: 14px;
+}
+.exalite_spec:last-child { border-bottom: 1px solid var(--el-divider); }
+.exalite_spec dt {
+  color: var(--el-label);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.exalite_spec dd {
+  margin: 0;
+  text-align: right;
+  color: var(--el-text);
+}
+
+.exalite_status { display: inline-flex; align-items: center; gap: 8px; }
+.exalite_status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--el-success);
+}
+.exalite_status.is-pending::before { background: var(--el-shore); }
+
+.exalite_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  height: 24px;
+  color: var(--el-text);
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  transition: color .18s;
+}
+.exalite_link svg { transition: transform .18s; }
+.exalite_link:hover { color: var(--el-brand); }
+.exalite_link:hover svg { transform: translateX(4px); }
+
+.exalite_note {
+  margin-top: 20px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 187, 68, .3);
+  background: rgba(255, 187, 68, .07);
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffd79a;
+}
+
+/* ---------- loading ---------- */
+.exalite_loading {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  background: var(--el-surface);
+  font-size: 14px;
+  color: var(--el-muted);
+  transition: opacity .4s;
+}
+.exalite.is-ready .exalite_loading { opacity: 0; pointer-events: none; }
+
+/* ---------- hẹp ---------- */
+@media (max-width: 991px) {
+  .exalite_tabs { padding: 24px 24px 0; }
+  .exalite_tabs-inner { grid-auto-columns: 142px; padding-bottom: 24px; }
+  .exalite_zoom { left: 16px; top: 16px; }
+  .exalite_panel {
+    right: 16px;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    max-height: calc(100% - 32px);
+  }
+  .exalite_panel-scroll { padding: 88px 24px 24px; }
+  .exalite .exalite_close { right: 24px; top: 24px; }
+  .exalite_pagination { right: auto; left: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exalite *,
+  .exalite_map.is-animating .exalite_canvas { transition-duration: .01ms !important; }
+}
