@@ -1,5 +1,5 @@
 {
-  "_note": "Subsea system tabs and profiles aligned with current Figma. To be confirmed values remain unconfirmed in Figma. North Sea Connect still uses the existing provisional profile.",
+  "_note": "Subsea system tabs and profiles aligned with current Figma. To be confirmed values remain unconfirmed in Figma. North Sea Connect removed by request on 2026-09-16.",
   "_source": "EXA | 26 | EXA Website, Working Space; tabs 96:8315; AEC-1 panel 96:8781; profile content 436:23611, 436:8942, 436:14447, 436:19953, 436:21782, 436:16259. Checked 2026-09-14.",
   "showAll": {
     "label": "Show All",
@@ -117,22 +117,6 @@
       "countries": "United States, France",
       "status": "Ready for Service",
       "statusTone": "live"
-    },
-    {
-      "slug": "north-sea-connect",
-      "order": 8,
-      "label": "North Sea Connect",
-      "sub": "North Sea",
-      "kicker": "North Sea subsea system",
-      "name": "North Sea Connect",
-      "from": "⚠ Newcastle, UK",
-      "to": "⚠ Esbjerg, Denmark",
-      "description": "⚠ Placeholder — North Sea crossing linking the UK to Denmark. Pending client confirmation.",
-      "length": "⚠ 626 km",
-      "countries": "United Kingdom, Denmark",
-      "status": "Ready for Service",
-      "statusTone": "live",
-      "link": "/network/interactive-map"
     }
   ]
 }
