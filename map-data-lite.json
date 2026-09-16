@@ -1,13 +1,13 @@
 {
-  "_note": "Subsea system tabs and profiles aligned with current Figma. To be confirmed values remain unconfirmed in Figma. North Sea Connect removed by request on 2026-09-16.",
-  "_source": "EXA | 26 | EXA Website, Working Space; tabs 96:8315; AEC-1 panel 96:8781; profile content 436:23611, 436:8942, 436:14447, 436:19953, 436:21782, 436:16259. Checked 2026-09-14.",
+  "_note": "Subsea system tabs and profiles aligned with current Figma. To be confirmed values remain unconfirmed in Figma. North Sea Connect removed by request on 2026-09-16. Anjana added and AEC systems grouped on 2026-09-16. Anjana Figma profile currently duplicates Dunant; landing locations and description verified against DC BLOX. Length and EXA service status await confirmation.",
+  "_source": "EXA | 26 | EXA Website, Working Space; tabs 96:8315; AEC-1 panel 96:8781; profile content 436:23611, 436:8942, 436:14447, 436:19953, 436:21782, 436:16259. Checked 2026-09-14. Tab order checked against Home 96:8315 and Subsea Systems 1029:8769 on 2026-09-16; Anjana artwork 2341:10197, 2341:10199; Meridian 1037:131694, 2397:9735. Anjana locations: https://www.dcblox.com/connecting-anjana-subsea-cable-to-dc-blox-cls/",
   "showAll": {
     "label": "Show All",
     "sub": "31 countries"
   },
   "items": [
     {
-      "slug": "EXA Meridian",
+      "slug": "exa-meridian",
       "order": 1,
       "label": "EXA Meridian",
       "tag": "RFS 2029",
@@ -55,24 +55,8 @@
       "link": "/network/interactive-map"
     },
     {
-      "slug": "exa-north-south",
-      "kicker": "Transatlantic subsea system",
-      "link": "/network/interactive-map",
-      "order": 4,
-      "label": "EXA North & South",
-      "name": "EXA North & South",
-      "sub": "Transatlantic",
-      "from": "UK",
-      "to": "New York / New Jersey",
-      "description": "Our first wholly owned transatlantic systems. While more established, they remain reliable and resilient, upgraded in 2025 with FLEX technology and fully operational and supported for the long term. These systems represent EXA Infrastructure's cost-effective, protected transatlantic connectivity offering.",
-      "length": "To be confirmed",
-      "countries": "United States, Canada, Ireland, United Kingdom",
-      "status": "Ready for Service",
-      "statusTone": "live"
-    },
-    {
       "slug": "aec-2-havfrue",
-      "order": 5,
+      "order": 4,
       "label": "AEC-2 (Havfrue)",
       "sub": "7,622km",
       "kicker": "Transatlantic subsea system",
@@ -88,7 +72,7 @@
     },
     {
       "slug": "aec-3-amitie",
-      "order": 6,
+      "order": 5,
       "label": "AEC-3 (Amitié)",
       "sub": "6,783km",
       "kicker": "Transatlantic subsea system",
@@ -101,6 +85,22 @@
       "status": "Live (FR fibre pair in progress)",
       "statusTone": "live",
       "link": "/network/interactive-map"
+    },
+    {
+      "slug": "exa-north-south",
+      "kicker": "Transatlantic subsea system",
+      "link": "/network/interactive-map",
+      "order": 6,
+      "label": "EXA North & South",
+      "name": "EXA North & South",
+      "sub": "Transatlantic",
+      "from": "UK",
+      "to": "New York / New Jersey",
+      "description": "Our first wholly owned transatlantic systems. While more established, they remain reliable and resilient, upgraded in 2025 with FLEX technology and fully operational and supported for the long term. These systems represent EXA Infrastructure's cost-effective, protected transatlantic connectivity offering.",
+      "length": "To be confirmed",
+      "countries": "United States, Canada, Ireland, United Kingdom",
+      "status": "Ready for Service",
+      "statusTone": "live"
     },
     {
       "slug": "dunant",
@@ -117,6 +117,22 @@
       "countries": "United States, France",
       "status": "Ready for Service",
       "statusTone": "live"
+    },
+    {
+      "slug": "anjana",
+      "order": 8,
+      "label": "Anjana",
+      "sub": "Transatlantic",
+      "kicker": "Transatlantic subsea system",
+      "name": "Anjana",
+      "from": "Myrtle Beach, SC",
+      "to": "Santander, Spain",
+      "description": "A transatlantic subsea cable connecting Myrtle Beach, South Carolina, with Santander, Spain.",
+      "length": "To be confirmed",
+      "countries": "United States, Spain",
+      "status": "To be confirmed",
+      "statusTone": "pending",
+      "link": "/network/interactive-map"
     }
   ]
 }
