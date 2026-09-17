@@ -1,5 +1,5 @@
 {
-  "_note": "Subsea system tabs and profiles aligned with current Figma. To be confirmed values remain unconfirmed in Figma. North Sea Connect removed by request on 2026-09-16. Anjana added and AEC systems grouped on 2026-09-16. Anjana Figma profile currently duplicates Dunant; landing locations and description verified against DC BLOX. Length and EXA service status await confirmation.",
+  "_note": "Length, landing countries and status for all eight systems updated from client-supplied copy. Client copy supersedes earlier Figma values for these fields. Existing numeric tab subtitles match the updated lengths. Meridian landing locations remain unconfirmed. North Sea Connect remains removed; AEC systems remain grouped.",
   "_source": "EXA | 26 | EXA Website, Working Space; tabs 96:8315; AEC-1 panel 96:8781; profile content 436:23611, 436:8942, 436:14447, 436:19953, 436:21782, 436:16259. Checked 2026-09-14. Tab order checked against Home 96:8315 and Subsea Systems 1029:8769 on 2026-09-16; Anjana artwork 2341:10197, 2341:10199; Meridian 1037:131694, 2397:9735. Anjana locations: https://www.dcblox.com/connecting-anjana-subsea-cable-to-dc-blox-cls/",
   "showAll": {
     "label": "Show All",
@@ -16,8 +16,8 @@
       "from": "To be confirmed",
       "to": "To be confirmed",
       "description": "Our next transatlantic system. Route, landing stations and available services will be published at announcement.",
-      "length": "To be confirmed",
-      "countries": "To be confirmed",
+      "length": "6,552 km",
+      "countries": "United States, United Kingdom",
       "status": "Planned - RFS 2029",
       "statusTone": "pending",
       "link": "https://exa-website-2026.webflow.io/subsea-systems#EXA-Meridian"
@@ -33,9 +33,9 @@
       "from": "UK",
       "to": "New York / New Jersey",
       "description": "A prime asset in our transatlantic portfolio. We are the sole owner of the entire system, and it's the fastest route between New York and London: sub-60ms round trip. Landing at Halifax, Cork and Burnham-on-Sea, with onward reach into New York and across Europe.",
-      "length": "To be confirmed",
-      "countries": "Canada, Ireland, United Kingdom",
-      "status": "Ready for Service",
+      "length": "4,600 km",
+      "countries": "United States, Canada, Ireland, United Kingdom",
+      "status": "Live",
       "statusTone": "live"
     },
     {
@@ -49,8 +49,8 @@
       "to": "Killala, Ireland",
       "description": "One of our owned transatlantic routes, linking the US East Coast directly to Ireland. Part of the network we now own end to end, duct to core, with no intermediate carrier risk between landing stations.",
       "length": "5,536 km",
-      "countries": "United States, Ireland",
-      "status": "Ready for Service",
+      "countries": "United States, Ireland, United Kingdom",
+      "status": "Live",
       "statusTone": "live",
       "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-1"
     },
@@ -58,15 +58,15 @@
       "slug": "aec-2-havfrue",
       "order": 4,
       "label": "AEC-2 (Havfrue)",
-      "sub": "7,622km",
+      "sub": "7,851km",
       "kicker": "Transatlantic subsea system",
       "name": "AEC-2 (Havfrue)",
       "from": "Nordics",
       "to": "New York / New Jersey",
       "description": "The only system serving the Northern corridor today. We are the only operator enabling access to all three EU cable landing stations, Ireland, Denmark and Norway. Following the Aqua Comms acquisition, EXA Infrastructure has a unique branch landing in Lecanvey, Ireland, with a protected and fully diverse route to Dublin.",
-      "length": "7,622 km",
+      "length": "7,851 km",
       "countries": "United States, Ireland, Denmark, Norway",
-      "status": "Ready for Service",
+      "status": "Live",
       "statusTone": "live",
       "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-2-havfrue"
     },
@@ -82,7 +82,7 @@
       "description": "Links the UK and France with the United States via the central transatlantic corridor, offering optimal connectivity between Central Europe and the New York region.",
       "length": "6,783 km",
       "countries": "United States, United Kingdom, France",
-      "status": "Live (FR fibre pair in progress)",
+      "status": "Live",
       "statusTone": "live",
       "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-3-amitie"
     },
@@ -97,9 +97,9 @@
       "from": "UK",
       "to": "New York / New Jersey",
       "description": "Our first wholly owned transatlantic systems. While more established, they remain reliable and resilient, upgraded in 2025 with FLEX technology and fully operational and supported for the long term. These systems represent EXA Infrastructure's cost-effective, protected transatlantic connectivity offering.",
-      "length": "To be confirmed",
+      "length": "N-5,300 km / S-5,300 km",
       "countries": "United States, Canada, Ireland, United Kingdom",
-      "status": "Ready for Service",
+      "status": "Live",
       "statusTone": "live"
     },
     {
@@ -113,9 +113,9 @@
       "from": "Paris / Bordeaux",
       "to": "Ashburn",
       "description": "The first cable system to land in France since 2003, with direct interconnection from the US to FLAP cities.",
-      "length": "To be confirmed",
+      "length": "6,500 km",
       "countries": "United States, France",
-      "status": "Ready for Service",
+      "status": "Live",
       "statusTone": "live"
     },
     {
@@ -128,10 +128,10 @@
       "from": "Myrtle Beach, SC",
       "to": "Santander, Spain",
       "description": "A transatlantic subsea cable connecting Myrtle Beach, South Carolina, with Santander, Spain.",
-      "length": "To be confirmed",
+      "length": "7,121 km",
       "countries": "United States, Spain",
-      "status": "To be confirmed",
-      "statusTone": "pending",
+      "status": "Live",
+      "statusTone": "live",
       "link": "https://exa-website-2026.webflow.io/subsea-systems#anjana"
     }
   ]
