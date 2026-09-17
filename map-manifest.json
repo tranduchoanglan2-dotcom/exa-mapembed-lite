@@ -967,6 +967,18 @@
       "x": 300.2,
       "y": 444.54,
       "ring": true
+    },
+    {
+      "id": 161,
+      "x": 700.69,
+      "y": 596.32,
+      "ring": true
+    },
+    {
+      "id": 162,
+      "x": 196.21,
+      "y": 577.48,
+      "ring": true
     }
   ],
   "items": {
@@ -974,55 +986,61 @@
       "type": "route",
       "bbox": {
         "x": 275.62,
-        "y": 225.64,
-        "w": 526.86,
-        "h": 246.5
+        "y": 273.99,
+        "w": 506.49,
+        "h": 187.22
       },
       "dots": [
         4,
         86,
         134,
-        136,
         155,
         160
       ],
-      "hasLine": true
+      "hasLine": true,
+      "source": "436:18086"
     },
     "aec-2-havfrue": {
       "type": "route",
       "bbox": {
         "x": 271.59,
-        "y": 111.6,
+        "y": 111.61,
         "w": 748.27,
-        "h": 339.83
+        "h": 339.82
       },
       "dots": [
         92,
-        158,
-        160
+        120,
+        135,
+        158
       ],
-      "hasLine": true
+      "hasLine": true,
+      "source": "2459:11688"
     },
     "aec-3-amitie": {
       "type": "route",
       "bbox": {
         "x": 313.15,
-        "y": 419.2,
+        "y": 358.53,
         "w": 510.51,
-        "h": 128.07
+        "h": 188.73
       },
       "dots": [
         14,
+        58,
+        83,
+        84,
         142
       ],
-      "hasLine": true
+      "hasLine": true,
+      "source": "436:21802"
     },
     "dunant": {
       "type": "route",
       "bbox": {
-        "x": 219.79,
+        "x": 219.8,
         "y": 480.1,
-        "w": 595.44,
+        "w": 595.43,
         "h": 82.22
       },
       "dots": [
@@ -1031,26 +1049,24 @@
         156,
         157
       ],
-      "hasLine": true
+      "hasLine": true,
+      "source": "436:16279"
     },
     "exa-express": {
       "type": "route",
       "bbox": {
-        "x": 275.92,
-        "y": 354.48,
-        "w": 563.59,
-        "h": 85.36
+        "x": 311.93,
+        "y": 364.18,
+        "w": 470.01,
+        "h": 53.35
       },
       "dots": [
         0,
-        83,
-        84,
-        85,
         141,
-        142,
-        155
+        142
       ],
-      "hasLine": true
+      "hasLine": true,
+      "source": "436:8948"
     },
     "amsterdam-cls": {
       "type": "pop",
@@ -1135,9 +1151,9 @@
     "exa-north-south": {
       "type": "route",
       "dots": [
+        3,
         4,
         5,
-        138,
         141
       ],
       "hasLine": true,
@@ -1146,7 +1162,8 @@
         "y": 227.27,
         "w": 361.9,
         "h": 174.38
-      }
+      },
+      "source": "436:14472"
     },
     "exa-meridian": {
       "type": "route",
@@ -1156,17 +1173,20 @@
       ],
       "hasLine": true,
       "bbox": {
-        "x": 274.44,
-        "y": 365.03,
-        "w": 507.44,
-        "h": 151.63
-      }
+        "x": 279.79,
+        "y": 364.03,
+        "w": 498.57,
+        "h": 99.72
+      },
+      "source": "1097:8667"
     },
     "anjana": {
       "type": "route",
       "dots": [
         100,
-        159
+        159,
+        161,
+        162
       ],
       "hasLine": true,
       "bbox": {
@@ -1174,8 +1194,9 @@
         "y": 568.93,
         "w": 626.23,
         "h": 46.95
-      }
+      },
+      "source": "2395:116507"
     }
   },
-  "_source": "Figma 2Mh9wcXJDCcjMAt0OjfKWl, Working Space, Map Artwork 1037:131331; updated 2026-09-14. Original viewBox and background retained. Anjana and EXA Meridian geometry synced from Figma 1037:131331 on 2026-09-16."
+  "_source": "Route geometry aligned to individual Subsea Systems artwork in Figma Working Space: 1097:8667, 436:8948, 436:14472, 436:18086, 2459:11688, 436:21802, 436:16279, 2395:116507. Myrtle Beach and Santander markers/labels from Home artwork 1037:131331."
 }

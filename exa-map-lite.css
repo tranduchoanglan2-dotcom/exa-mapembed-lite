@@ -255,9 +255,10 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, .62);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  /* Figma 96:8781: navy at 40%; background blur 24 maps to CSS blur 12px. */
+  background: rgba(3, 13, 28, .4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -293,7 +294,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .1);
+  background: var(--el-divider);
   transition: background .15s;
 }
 .exalite .exalite_close:hover { background: rgba(255, 255, 255, .2); }
@@ -343,11 +344,11 @@
   justify-content: space-between;
   gap: 16px;
   height: 46px;
-  border-top: 1px solid var(--el-divider);
+  border-top: 1px solid rgba(255, 255, 255, .2);
   font-size: 14px;
   line-height: 14px;
 }
-.exalite_spec:last-child { border-bottom: 1px solid var(--el-divider); }
+.exalite_spec:last-child { border-bottom: 1px solid rgba(255, 255, 255, .2); }
 .exalite_spec dt {
   color: var(--el-label);
   text-transform: uppercase;

@@ -130,6 +130,9 @@
     this.wirePan();
     this.setActiveTab(null);
     this.resize();
+    /* Home and Subsea Systems share this embed and open on Meridian. */
+    this.select(this.byslug['exa-meridian'] ? 'exa-meridian' : null);
+    this.apply(false);
 
     window.addEventListener('resize', function () { self.resize(); });
     r.addEventListener('keydown', function (e) {
