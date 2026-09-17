@@ -20,12 +20,12 @@
       "countries": "To be confirmed",
       "status": "Planned - RFS 2029",
       "statusTone": "pending",
-      "link": "/network/interactive-map"
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#EXA-Meridian"
     },
     {
       "slug": "exa-express",
       "kicker": "Transatlantic subsea system",
-      "link": "/network/interactive-map",
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#exa-express",
       "order": 2,
       "label": "EXA Express",
       "name": "EXA Express",
@@ -52,7 +52,7 @@
       "countries": "United States, Ireland",
       "status": "Ready for Service",
       "statusTone": "live",
-      "link": "/network/interactive-map"
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-1"
     },
     {
       "slug": "aec-2-havfrue",
@@ -68,7 +68,7 @@
       "countries": "United States, Ireland, Denmark, Norway",
       "status": "Ready for Service",
       "statusTone": "live",
-      "link": "/network/interactive-map"
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-2-havfrue"
     },
     {
       "slug": "aec-3-amitie",
@@ -84,12 +84,12 @@
       "countries": "United States, United Kingdom, France",
       "status": "Live (FR fibre pair in progress)",
       "statusTone": "live",
-      "link": "/network/interactive-map"
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-3-amitie"
     },
     {
       "slug": "exa-north-south",
       "kicker": "Transatlantic subsea system",
-      "link": "/network/interactive-map",
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#EXA-North-South",
       "order": 6,
       "label": "EXA North & South",
       "name": "EXA North & South",
@@ -105,7 +105,7 @@
     {
       "slug": "dunant",
       "kicker": "Transatlantic subsea system",
-      "link": "/network/interactive-map",
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#dunant",
       "order": 7,
       "label": "Dunant",
       "name": "Dunant",
@@ -132,7 +132,7 @@
       "countries": "United States, Spain",
       "status": "To be confirmed",
       "statusTone": "pending",
-      "link": "/network/interactive-map"
+      "link": "https://exa-website-2026.webflow.io/subsea-systems#anjana"
     }
   ]
 }
