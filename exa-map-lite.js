@@ -42,6 +42,25 @@
   }
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
 
+  function websiteLink(link) {
+    /* Root-relative links belong to the website embedding this map, not GitHub Pages.
+       Keep a normal _top anchor so mouse, keyboard and open-in-new-tab all work. */
+    if (!/^\/(?!\/)/.test(link) || window.top === window) return link;
+    var origins = window.location.ancestorOrigins;
+    var website = origins && origins.length ? origins[origins.length - 1] : document.referrer;
+    try {
+      /* Also works for same-origin embeds with a no-referrer policy. */
+      website = window.top.location.origin;
+    } catch (e) { /* Cross-origin iframe: use ancestor origin or referrer above. */ }
+    try {
+      var base = new URL(website);
+      if (base.protocol === 'https:' || base.protocol === 'http:') {
+        return new URL(link, base.origin).href;
+      }
+    } catch (e) { /* Standalone previews retain the relative link. */ }
+    return link;
+  }
+
   /* ============================================================ */
 
   function LiteMap(root) {
@@ -190,7 +209,7 @@
       '<dl class="exalite_specs">' + rows.map(function (r) {
         return '<div class="exalite_spec"><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>';
       }).join('') + '</dl>' +
-      (it.link ? '<a class="exalite_link" href="' + esc(it.link) + '" target="_top">View on our network' + I.arrow + '</a>' : '') +
+      (it.link ? '<a class="exalite_link" href="' + esc(websiteLink(it.link)) + '" target="_top">View on our network' + I.arrow + '</a>' : '') +
       (hasGeometry ? '' : '<div class="exalite_note">Route geometry not exported yet — nothing to highlight on the map for this system.</div>');
 
     this.panelBody.scrollTop = 0;
