@@ -20,12 +20,12 @@
       "countries": "United States, United Kingdom",
       "status": "Planned - RFS 2029",
       "statusTone": "pending",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#EXA-Meridian"
+      "link": "/subsea-systems#EXA-Meridian"
     },
     {
       "slug": "exa-express",
       "kicker": "Transatlantic subsea system",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#exa-express",
+      "link": "/subsea-systems#exa-express",
       "order": 2,
       "label": "EXA Express",
       "name": "EXA Express",
@@ -52,7 +52,7 @@
       "countries": "United States, Ireland, United Kingdom",
       "status": "Live",
       "statusTone": "live",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-1"
+      "link": "/subsea-systems#aec-1"
     },
     {
       "slug": "aec-2-havfrue",
@@ -68,7 +68,7 @@
       "countries": "United States, Ireland, Denmark, Norway",
       "status": "Live",
       "statusTone": "live",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-2-havfrue"
+      "link": "/subsea-systems#aec-2-havfrue"
     },
     {
       "slug": "aec-3-amitie",
@@ -84,12 +84,12 @@
       "countries": "United States, United Kingdom, France",
       "status": "Live",
       "statusTone": "live",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#aec-3-amitie"
+      "link": "/subsea-systems#aec-3-amitie"
     },
     {
       "slug": "exa-north-south",
       "kicker": "Transatlantic subsea system",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#EXA-North-South",
+      "link": "/subsea-systems#EXA-North-South",
       "order": 6,
       "label": "EXA North & South",
       "name": "EXA North & South",
@@ -105,7 +105,7 @@
     {
       "slug": "dunant",
       "kicker": "Transatlantic subsea system",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#dunant",
+      "link": "/subsea-systems#dunant",
       "order": 7,
       "label": "Dunant",
       "name": "Dunant",
@@ -132,7 +132,7 @@
       "countries": "United States, Spain",
       "status": "Live",
       "statusTone": "live",
-      "link": "https://exa-website-2026.webflow.io/subsea-systems#anjana"
+      "link": "/subsea-systems#anjana"
     }
   ]
 }
