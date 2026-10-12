@@ -55,6 +55,19 @@
   scrollbar-width: none;
 }
 .exalite_tabs::-webkit-scrollbar { display: none; }
+/* Edge fade when tabs are scrolled out of view (toggled by updateTabFade). */
+.exalite_tabs.has-more-right {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 64px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 64px), transparent);
+}
+.exalite_tabs.has-more-left {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 64px), transparent);
+  mask-image: linear-gradient(to left, #000 calc(100% - 64px), transparent);
+}
+.exalite_tabs.has-more-left.has-more-right {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+}
 
 .exalite_tabs-inner {
   display: grid;
@@ -410,6 +423,14 @@
   transition: opacity .4s;
 }
 .exalite.is-ready .exalite_loading { opacity: 0; pointer-events: none; }
+
+/* Wide embeds: let all ten tabs (Show All + 9 systems) share the row instead of
+   scrolling. 1208px = 10 × 100px + 9 × 16px gaps + 64px padding. Long names
+   ellipsize and keep the full name in the tab tooltip. Narrower embeds keep the
+   142px tabs and scroll, with the edge fade and active-tab reveal. */
+@media (min-width: 1208px) {
+  .exalite_tabs-inner { grid-auto-columns: minmax(100px, 1fr); }
+}
 
 /* ---------- hẹp ---------- */
 @media (max-width: 991px) {

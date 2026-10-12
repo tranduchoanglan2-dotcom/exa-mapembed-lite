@@ -153,7 +153,9 @@
     this.select(this.byslug['exa-meridian'] ? 'exa-meridian' : null);
     this.apply(false);
 
-    window.addEventListener('resize', function () { self.resize(); });
+    window.addEventListener('resize', function () { self.resize(); self.updateTabFade(); });
+    tabs.addEventListener('scroll', function () { self.updateTabFade(); }, { passive: true });
+    this.updateTabFade();
     r.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && self.state.selected) self.select(null);
     });
@@ -253,6 +255,30 @@
     this.tabsEl.querySelectorAll('.exalite_tab').forEach(function (b) {
       b.classList.toggle('is-active', b.getAttribute('data-tab') === key);
     });
+    this.revealActiveTab();
+  };
+
+  /* When the strip is wider than the embed (narrow screens), keep the active tab in view —
+     e.g. after paging to Marea with the arrows. Scrolls the strip only, never the page. */
+  LiteMap.prototype.revealActiveTab = function () {
+    var strip = this.tabsEl.parentElement;
+    var act = this.tabsEl.querySelector('.exalite_tab.is-active');
+    if (!strip || !act || strip.scrollWidth <= strip.clientWidth) return;
+    var sr = strip.getBoundingClientRect(), ar = act.getBoundingClientRect(), pad = 24;
+    if (ar.left < sr.left + pad) strip.scrollLeft -= (sr.left + pad) - ar.left;
+    else if (ar.right > sr.right - pad) strip.scrollLeft += ar.right - (sr.right - pad);
+    this.updateTabFade();
+  };
+
+  /* Fade the strip edge that has hidden tabs, so it is clear there is more to scroll to. */
+  LiteMap.prototype.updateTabFade = function () {
+    var strip = this.tabsEl && this.tabsEl.parentElement;
+    if (!strip) return;
+    var max = strip.scrollWidth - strip.clientWidth;
+    /* The strip's right padding can scroll without hiding a tab; ignore that much. */
+    var tol = parseFloat(window.getComputedStyle(strip).paddingRight) || 0;
+    strip.classList.toggle('has-more-left', max > 2 && strip.scrollLeft > 2);
+    strip.classList.toggle('has-more-right', strip.scrollLeft < max - tol - 2);
   };
 
   LiteMap.prototype.updatePagination = function () {
