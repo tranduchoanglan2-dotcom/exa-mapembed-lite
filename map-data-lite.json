@@ -1,5 +1,5 @@
 {
-  "_note": "Length, landing countries and status for all eight systems updated from client-supplied copy. Client copy supersedes earlier Figma values for these fields. Existing numeric tab subtitles match the updated lengths. Meridian landing locations remain unconfirmed. North Sea Connect remains removed; AEC systems remain grouped.",
+  "_note": "Length, landing countries and status for all eight systems updated from client-supplied copy. Client copy supersedes earlier Figma values for these fields. Existing numeric tab subtitles match the updated lengths. Meridian landing locations remain unconfirmed. North Sea Connect remains removed; AEC systems remain grouped. Marea (order 9) added for RP-2626: route endpoints from Figma artwork; description, length and status are placeholders until the client confirms.",
   "_source": "EXA | 26 | EXA Website, Working Space; tabs 96:8315; AEC-1 panel 96:8781; profile content 436:23611, 436:8942, 436:14447, 436:19953, 436:21782, 436:16259. Checked 2026-09-14. Tab order checked against Home 96:8315 and Subsea Systems 1029:8769 on 2026-09-16; Anjana artwork 2341:10197, 2341:10199; Meridian 1037:131694, 2397:9735. Anjana locations: https://www.dcblox.com/connecting-anjana-subsea-cable-to-dc-blox-cls/",
   "showAll": {
     "label": "Show All",
@@ -133,6 +133,22 @@
       "status": "Live",
       "statusTone": "live",
       "link": "/subsea-systems#anjana"
+    },
+    {
+      "slug": "marea",
+      "order": 9,
+      "label": "Marea",
+      "sub": "Transatlantic",
+      "kicker": "Transatlantic subsea system",
+      "name": "Marea",
+      "from": "Virginia Beach, VA",
+      "to": "Sopelana, Spain",
+      "description": "TBC - panel copy to be confirmed by the client.",
+      "length": "TBC",
+      "countries": "United States, Spain",
+      "status": "TBC",
+      "statusTone": "pending",
+      "link": "/subsea-systems#marea"
     }
   ]
 }

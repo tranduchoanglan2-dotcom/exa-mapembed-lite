@@ -1196,7 +1196,22 @@
         "h": 46.95
       },
       "source": "2395:116507"
+    },
+    "marea": {
+      "type": "route",
+      "dots": [
+        157,
+        100
+      ],
+      "hasLine": true,
+      "bbox": {
+        "x": 248.38,
+        "y": 528.08,
+        "w": 519.86,
+        "h": 69.27
+      },
+      "source": "2658:17870"
     }
   },
-  "_source": "Route geometry aligned to individual Subsea Systems artwork in Figma Working Space: 1097:8667, 436:8948, 436:14472, 436:18086, 2459:11688, 436:21802, 436:16279, 2395:116507. Myrtle Beach and Santander markers/labels from Home artwork 1037:131331."
+  "_source": "Route geometry aligned to individual Subsea Systems artwork in Figma Working Space: 1097:8667, 436:8948, 436:14472, 436:18086, 2459:11688, 436:21802, 436:16279, 2395:116507. Myrtle Beach and Santander markers/labels from Home artwork 1037:131331. Marea route and label from Home artwork 2658:17870 / 2658:19450 (Figma, Oct 2026); second Genoa-Milan line 2658:17810."
 }
